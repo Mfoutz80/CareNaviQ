@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CARE NAVIQ - Select Service</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+    :root {
+      --primary: #769656;
+      --primary-light: #d9e6b8;
+      --secondary: #5a8b3f;
+      --secondary-light: #c7e0b8;
+      --tertiary: #414141;
+      --tertiary-light: #ffffff;
+      --danger: #b33430;
+      --danger-light: #f4d8d7;
+      --dark: #2b2b2b;
+      --gray: #666633;
+      --light-gray: #f0f0f0;
+      --white: #ffffff;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f0f0f0;
+    }
+    .service-card {
+      transition: all 0.3s ease;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      background-color: var(--white);
+      border-top: 4px solid var(--primary);
+      position: relative;
+      cursor: pointer;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+    }
+    .service-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
+    }
+    .premium-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .card-shadow {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary-light), var(--primary));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .service-card:hover .card-shadow {
+      opacity: 1;
+    }
+    .service-description {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .features-list {
+      margin-top: 1.25rem;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+      font-size: 0.9rem;
+    }
+    .feature-item i {
+      color: var(--primary);
+      margin-right: 0.5rem;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="sticky top-0 z-50">
+    <header style="background-color: #ffffff" class="shadow-md">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img src="logo.svg" alt="Care Naviq Logo" class="h-10 w-10 mr-2" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiM3Njk2NTYiIHJ4PSI4Ii8+PHBhdGggZD0iTTEwIDEwSDMwVjMwSDEwVjEwWiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNMTUgMjBIMjVNMTUgMTVIMjVNMTUgMjVIMjUiIHN0cm9rZT0iIzc2OTY1NiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4='">
+            <div>
+              <h1 class="text-2xl font-bold">
+                <span style="color: #000000;">Care</span>
+                <span style="color: #769656;">NaviQ</span>
+              </h1>
+            </div>
+          </div>
+          <nav class="flex items-center space-x-6">
+            <a href="#" class="hover:text-primary transition flex items-center" style="color: #666633;">
+              <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+            </a>
+            <a href="#" class="hover:text-primary transition flex items-center" style="color: #666633;">
+              <i class="fas fa-chart-bar mr-2"></i> Reports
+            </a>
+            <div class="relative">
+              <button class="flex items-center hover:text-primary transition" style="color: #666633;">
+                <i class="fas fa-user-circle mr-2"></i> Profile
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold" style="color: #2b2b2b;">Select a Service</h1>
+      <p class="text-gray-600 mt-2">Choose from our range of healthcare analytics and management tools</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <!-- Skilled Nursing Facilities Card -->
+      <div class="service-card p-6" onclick="window.location.href='snf-entity-search.html'">
+        <div class="text-center mb-4">
+          <i class="fas fa-hospital-user service-icon"></i>
+          <h3 class="text-xl font-bold mb-3" style="color: #2b2b2b;">Skilled Nursing Facilities</h3>
+          <p class="service-description">Comprehensive analytics and insights for skilled nursing facility networks.</p>
+        </div>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Facility ownership data</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Quality metrics tracking</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Financial performance analysis</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Geographic distribution insights</span>
+          </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <button class="px-6 py-2 rounded-full text-white font-medium transition" style="background-color: #769656;">
+            Explore Now
+          </button>
+        </div>
+        <div class="card-shadow"></div>
+      </div>
+      
+      <!-- Hospitals Card -->
+      <div class="service-card p-6" onclick="showPremiumFeatureModal('hospitals')">
+        <div class="premium-badge">Premium</div>
+        <div class="text-center mb-4">
+          <i class="fas fa-hospital service-icon"></i>
+          <h3 class="text-xl font-bold mb-3" style="color: #2b2b2b;">Hospitals</h3>
+          <p class="service-description">In-depth hospital performance and quality benchmark analysis.</p>
+        </div>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Hospital comparison data</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Patient outcome tracking</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Readmission rate analysis</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Cost effectiveness metrics</span>
+          </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <button class="px-6 py-2 rounded-full text-white font-medium transition" style="background-color: #769656;">
+            Learn More
+          </button>
+        </div>
+        <div class="card-shadow"></div>
+      </div>
+      
+      <!-- Dashboard Card -->
+      <div class="service-card p-6" onclick="showPremiumFeatureModal('dashboard')">
+        <div class="premium-badge">Premium</div>
+        <div class="text-center mb-4">
+          <i class="fas fa-chart-line service-icon"></i>
+          <h3 class="text-xl font-bold mb-3" style="color: #2b2b2b;">Dashboard</h3>
+          <p class="service-description">Personalized analytics dashboard with customizable metrics and reports.</p>
+        </div>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Customizable data views</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Real-time performance tracking</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Exportable reports</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <span>Trend identification tools</span>
+          </div>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <button class="px-6 py-2 rounded-full text-white font-medium transition" style="background-color: #769656;">
+            Learn More
+          </button>
+        </div>
+        <div class="card-shadow"></div>
+      </div>
+    </div>
+    
+    <!-- Coming Soon Section -->
+    <div class="mt-12 mb-8">
+      <h2 class="text-2xl font-bold" style="color: #2b2b2b;">Coming Soon</h2>
+      <p class="text-gray-600 mt-2">Our team is working on these additional services</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Home Health Card -->
+      <div class="service-card p-6 opacity-75">
+        <div class="text-center mb-4">
+          <i class="fas fa-home service-icon"></i>
+          <h3 class="text-xl font-bold mb-3" style="color: #2b2b2b;">Home Health</h3>
+          <p class="service-description">Home health agency analytics and performance tracking solution.</p>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <button class="px-6 py-2 rounded-full text-white font-medium transition" style="background-color: #a9bca9;">
+            Coming Soon
+          </button>
+        </div>
+        <div class="card-shadow"></div>
+      </div>
+      
+      <!-- Behavioral Health Card -->
+      <div class="service-card p-6 opacity-75">
+        <div class="text-center mb-4">
+          <i class="fas fa-brain service-icon"></i>
+          <h3 class="text-xl font-bold mb-3" style="color: #2b2b2b;">Behavioral Health</h3>
+          <p class="service-description">Behavioral health provider analytics and insights platform.</p>
+        </div>
+        
+        <div class="mt-6 text-center">
+          <button class="px-6 py-2 rounded-full text-white font-medium transition" style="background-color: #a9bca9;">
+            Coming Soon
+          </button>
+        </div>
+        <div class="card-shadow"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Premium Feature Modal -->
+  <div id="premium-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-xl p-8 max-w-md w-full">
+      <div class="text-center mb-6">
+        <i class="fas fa-gem text-4xl mb-4" style="color: #769656;"></i>
+        <h3 class="text-xl font-bold" style="color: #2b2b2b;">Premium Feature</h3>
+        <p class="text-gray-600 mt-2">This feature is currently available exclusively for premium subscribers.</p>
+        <p class="text-gray-600 mt-2">Upgrade your account to access this and other advanced features.</p>
+      </div>
+      <div class="mt-6 text-center">
+        <button id="upgrade-button" class="px-6 py-2 bg-primary rounded-full text-white font-medium transition mr-4" style="background-color: #769656;">
+          Upgrade Now
+        </button>
+        <button id="close-modal-button" class="px-6 py-2 bg-gray-200 rounded-full text-gray-700 font-medium transition">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-white mt-12 py-8 border-t" style="border-color: #e6e6e6;">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <div class="flex items-center">
+            <img src="logo.svg" alt="Care Naviq Logo" class="h-8 w-8 mr-2" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiM3Njk2NTYiIHJ4PSI4Ii8+PHBhdGggZD0iTTEwIDEwSDMwVjMwSDEwVjEwWiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNMTUgMjBIMjVNMTUgMTVIMjVNMTUgMjVIMjUiIHN0cm9rZT0iIzc2OTY1NiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4='">
+            <h1 class="text-xl font-bold">
+              <span style="color: #000000;">CARE</span>
+              <span style="color: #769656;">NAVIQ</span>
+            </h1>
+          </div>
+        </div>
+        <div class="text-sm text-center md:text-right" style="color: #666633;">
+          © <span id="current-year"></span> CARE NAVIQ. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Function to show the premium feature modal
+    function showPremiumFeatureModal(feature) {
+      const modal = document.getElementById('premium-modal');
+      modal.classList.remove('hidden');
+      
+      // Add feature name to modal title if needed
+      // const modalTitle = document.querySelector('#premium-modal h3');
+      // modalTitle.textContent = `Premium Feature: ${feature.charAt(0).toUpperCase() + feature.slice(1)}`;
+    }
+    
+    // Close modal when clicking the close button
+    document.getElementById('close-modal-button').addEventListener('click', function() {
+      document.getElementById('premium-modal').classList.add('hidden');
+    });
+    
+    // Close modal when clicking outside the modal content
+    document.getElementById('premium-modal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        this.classList.add('hidden');
+      }
+    });
+    
+    // Handle upgrade button click
+    document.getElementById('upgrade-button').addEventListener('click', function() {
+      alert('Redirecting to upgrade page...');
+      // In a real implementation, you would redirect to the upgrade page
+      document.getElementById('premium-modal').classList.add('hidden');
+    });
+    
+    // Add smooth scrolling for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Add hover effect for navigation items
+    document.querySelectorAll('nav a, nav button').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.style.color = '#769656';
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.style.color = '#666633';
+      });
+    });
+  </script>
+</body>
+</html>

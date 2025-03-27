@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TLFLJE3K7N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TLFLJE3K7N');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care NaviQ - Healthcare Data Analytics Platform</title>
+    <meta name="description" content="Care NaviQ provides cloud-based software solutions for Skilled Nursing Facilities to optimize care, streamline revenue cycles, and improve operational efficiency.">
+    <meta name="keywords" content="healthcare analytics, SNF software, facility management, patient care, revenue optimization">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1B5E20',
+                        secondary: '#2E7D32',
+                        accent: '#4CAF50',
+                        dark: '#121212',
+                        light: '#FFFFFF',
+                        darkGreen: '#0B3E1B',
+                        lightGreen: '#81C784',
+                        offWhite: '#F5F5F5',
+                        charcoal: '#333333'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'fade-in': 'fadeIn 1s ease-in-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-in-out forwards',
+                        'slide-right': 'slideRight 0.8s ease-in-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%': { 
+                                boxShadow: '0 0 5px rgba(27, 94, 32, 0.3), 0 0 10px rgba(27, 94, 32, 0.2)', 
+                                background: 'rgba(27, 94, 32, 0.05)'
+                            },
+                            '100%': { 
+                                boxShadow: '0 0 20px rgba(27, 94, 32, 0.6), 0 0 30px rgba(27, 94, 32, 0.4)', 
+                                background: 'rgba(27, 94, 32, 0.1)' 
+                            }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #1B5E20, #81C784);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-bg {
+            background: radial-gradient(circle at 80% 50%, #0B3E1B 0%, transparent 50%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+        }
+        
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(27, 94, 32, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(27, 94, 32, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .custom-shape-divider {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .highlight-container {
+            position: relative;
+        }
+        
+        .highlight {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .highlight::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 30%;
+            width: 100%;
+            background: rgba(27, 94, 32, 0.2);
+            z-index: -1;
+            transform: rotate(-1deg);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .tooltip-container {
+            position: relative;
+        }
+        
+        .tooltip {
+            visibility: hidden;
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 16px;
+            border-radius: 6px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            white-space: nowrap;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .tooltip-container:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Custom Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(18, 18, 18, 0.8);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #1B5E20 0%, #81C784 100%);
+            border-radius: 10px;
+            border: 3px solid rgba(18, 18, 18, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #1B5E20 30%, #81C784 100%);
+            box-shadow: 0 0 10px rgba(27, 94, 32, 0.5);
+        }
+
+        /* For Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #1B5E20 rgba(18, 18, 18, 0.8);
+        }
+
+        /* Data visualization elements */
+        .data-bar {
+            height: 40px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .data-point {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            position: relative;
+        }
+
+        .data-line {
+            height: 2px;
+            background: linear-gradient(90deg, #1B5E20, #81C784);
+            position: relative;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .data-cell {
+            aspect-ratio: 1;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        /* SVG Illustrations */
+        .svg-healthcare {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Feature cards */
+        .feature-icon-bg {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: rgba(27, 94, 32, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon-bg {
+            background: rgba(27, 94, 32, 0.2);
+            transform: scale(1.1) rotate(5deg);
+        }
+    </style>
+</head>
+<body class="bg-grid">
+    <!-- Gradient Background Overlay -->
+    <div class="fixed w-full h-full top-0 left-0 -z-10">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary opacity-5 blur-[150px] rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary opacity-5 blur-[150px] rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="py-6 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-md bg-dark/80">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-primary text-3xl font-bold relative group">
+                    <span class="text-primary group-hover:opacity-90 transition">Care</span><span class="text-white group-hover:opacity-90 transition">NaviQ</span>
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                </a>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-white opacity-80 hover:text-primary hover:opacity-100 transition relative group py-2">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#features" class="text-white opacity-80 hover:text-primary hover:opacity-100 transition relative group py-2">
+                        Features
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#solutions" class="text-white opacity-80 hover:text-primary hover:opacity-100 transition relative group py-2">
+                        Solutions
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                    <a href="#testimonials" class="text-white opacity-80 hover:text-primary hover:opacity-100 transition relative group py-2">
+                        Testimonials
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
+                    </a>
+                </nav>
+
+                <div class="hidden md:flex space-x-4">
+                    <a href="products.html" class="px-5 py-2.5 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 font-medium">Analytics</a>
+                    <a href="#demo" class="px-5 py-2.5 bg-primary text-white rounded-full hover:shadow-lg hover:shadow-primary/20 hover:translate-y-[-2px] transition-all duration-300 font-medium">Request Demo</a>
+                </div>
+
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden mt-6 glass-effect p-6 animate-glow">
+                <nav class="flex flex-col space-y-6 pb-4">
+                    <a href="#" class="text-white hover:text-primary transition-colors flex items-center">
+                        <i class="fas fa-home mr-3 text-primary"></i>Home
+                    </a>
+                    <a href="#features" class="text-white hover:text-primary transition-colors flex items-center">
+                        <i class="fas fa-chart-line mr-3 text-primary"></i>Features
+                    </a>
+                    <a href="#solutions" class="text-white hover:text-primary transition-colors flex items-center">
+                        <i class="fas fa-building mr-3 text-primary"></i>Solutions
+                    </a>
+                    <a href="#testimonials" class="text-white hover:text-primary transition-colors flex items-center">
+                        <i class="fas fa-comment mr-3 text-primary"></i>Testimonials
+                    </a>
+                    <div class="border-t border-gray-700 pt-4 flex flex-col space-y-3">
+                        <a href="#" class="text-white hover:text-primary transition-colors flex items-center">
+                            <i class="fas fa-sign-in-alt mr-3 text-primary"></i>Login
+                        </a>
+                        <a href="#demo" class="bg-primary/10 text-primary p-3 rounded-lg font-medium hover:bg-primary hover:text-white transition-colors text-center">
+                            Request Demo
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-20 md:py-28 relative hero-bg overflow-hidden">
+            <!-- Animated data elements background -->
+            <div class="absolute top-20 left-20 w-64 h-64 bg-primary opacity-5 rounded-full blur-[80px] animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-10 w-80 h-80 bg-secondary opacity-5 rounded-full blur-[100px] animate-pulse-slow" style="animation-delay: 1s;"></div>
+            
+            <!-- Data visualization particles -->
+            <div class="hidden lg:block absolute top-20 left-10 text-xs opacity-30 animate-float" style="animation-delay: 0.5s;">
+                <pre>function optimizeSNF() {<br>  return efficiency;<br>}</pre>
+            </div>
+            <div class="hidden lg:block absolute bottom-40 right-10 text-xs opacity-30 animate-float" style="animation-delay: 1.5s;">
+                <pre>const facilityData = {<br>  insights: true<br>};</pre>
+            </div>
+            <div class="hidden lg:block absolute top-40 right-1/4 text-xs opacity-30 animate-float" style="animation-delay: 2.5s;">
+                <pre><div class="metrics"><br>  <data>Streamline</data><br></div></pre>
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <div class="inline-block mb-3 bg-white/5 backdrop-blur-sm px-4 py-1.5 rounded-full">
+                            <span class="text-xs font-medium text-primary">Skilled Nursing Solutions</span>
+                        </div>
+                        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight">
+                            <span class="gradient-text">Care NaviQ</span>
+                            <span class="text-white relative inline-block">
+                                <span class="absolute -top-10 -right-8 text-primary text-opacity-20 text-6xl font-light">✱</span>
+                                .
+                            </span>
+                        </h1>
+                        <p class="text-xl mb-8 text-gray-300 leading-relaxed max-w-xl mx-auto md:mx-0">
+                            Your all-in-one platform for <span class="highlight">SNF management</span>. Optimize care, streamline revenue cycles, and boost facility performance with cloud-based analytics.
+                        </p>
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                            <a href="#demo" class="px-8 py-4 bg-primary text-white rounded-full font-medium hover:shadow-lg hover:shadow-primary/20 hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center group">
+                                <span>Request Demo</span>
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="#solutions" class="px-8 py-4 border border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center">
+                                <i class="fas fa-building mr-2"></i>
+                                <span>Explore Solutions</span>
+                            </a>
+                        </div>
+                        
+                        <!-- Testimonial Pill -->
+                        <div class="mt-8 inline-flex items-center bg-white/5 backdrop-blur-sm pl-1 pr-4 py-1 rounded-full">
+                            <div class="flex -space-x-2 mr-3">
+                                <div class="w-8 h-8 rounded-full border-2 border-dark flex items-center justify-center bg-primary/20 text-primary text-xs font-bold">HC</div>
+                                <div class="w-8 h-8 rounded-full border-2 border-dark flex items-center justify-center bg-accent/20 text-accent text-xs font-bold">SR</div>
+                                <div class="w-8 h-8 rounded-full border-2 border-dark flex items-center justify-center bg-secondary/20 text-secondary text-xs font-bold">PM</div>
+                            </div>
+                            <span class="text-xs text-gray-300">Rated <span class="text-primary font-medium">4.7/5</span> by SNF operators</span>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="bg-gradient-to-br from-primary/10 to-transparent rounded-2xl p-8 glass-effect animate-glow transform rotate-1">
+                            <!-- SVG Dashboard illustration -->
+                            <div class="w-full h-auto rounded-lg shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-300 bg-dark/40 p-6 border border-primary/10">
+                                <!-- Dashboard Header -->
+                                <div class="flex justify-between items-center mb-6">
+                                    <div class="text-primary font-bold">Care NaviQ Dashboard</div>
+                                    <div class="flex space-x-2">
+                                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Dashboard Content -->
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-dark/60 p-3 rounded-lg">
+                                        <div class="text-xs text-gray-400 mb-1">Census Rate</div>
+                                        <div class="text-xl font-bold text-primary">95.2%</div>
+                                        <div class="w-full bg-gray-700 h-2 rounded-full mt-2">
+                                            <div class="data-bar bg-primary rounded-full w-[95.2%]"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-dark/60 p-3 rounded-lg">
+                                        <div class="text-xs text-gray-400 mb-1">Revenue Cycle</div>
+                                        <div class="text-xl font-bold text-primary">89.5%</div>
+                                        <div class="w-full bg-gray-700 h-2 rounded-full mt-2">
+                                            <div class="data-bar bg-primary rounded-full w-[89.5%]"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Line Chart Simulation -->
+                                <div class="bg-dark/60 p-3 rounded-lg mb-4">
+                                    <div class="text-xs text-gray-400 mb-3">Risk Trends</div>
+                                    <div class="relative h-20">
+                                        <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-700"></div>
+                                        <div class="flex justify-between items-end h-full relative">
+                                            <div class="data-point" style="bottom: 30%;"></div>
+                                            <div class="data-point" style="bottom: 50%;"></div>
+                                            <div class="data-point" style="bottom: 20%;"></div>
+                                            <div class="data-point" style="bottom: 70%;"></div>
+                                            <div class="data-point" style="bottom: 40%;"></div>
+                                            <div class="data-point" style="bottom: 60%;"></div>
+                                            <div class="data-point" style="bottom: 80%;"></div>
+                                        </div>
+                                        <div class="data-line w-0" style="bottom: 30%; top: auto; position: absolute;"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Heatmap Simulation -->
+                                <div class="bg-dark/60 p-3 rounded-lg">
+                                    <div class="text-xs text-gray-400 mb-3">Staff Utilization</div>
+                                    <div class="data-grid">
+                                        <div class="data-cell bg-primary/10"></div>
+                                        <div class="data-cell bg-primary/20"></div>
+                                        <div class="data-cell bg-primary/40"></div>
+                                        <div class="data-cell bg-primary/30"></div>
+                                        <div class="data-cell bg-primary/60"></div>
+                                        <div class="data-cell bg-primary/50"></div>
+                                        <div class="data-cell bg-primary/20"></div>
+                                        
+                                        <div class="data-cell bg-primary/50"></div>
+                                        <div class="data-cell bg-primary/70"></div>
+                                        <div class="data-cell bg-primary/90"></div>
+                                        <div class="data-cell bg-primary/60"></div>
+                                        <div class="data-cell bg-primary/30"></div>
+                                        <div class="data-cell bg-primary/40"></div>
+                                        <div class="data-cell bg-primary/50"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Floating badges -->
+                            <div class="absolute -top-5 -left-5 bg-dark/90 backdrop-blur-sm px-4 py-2 rounded-lg border border-primary/20 shadow-xl animate-float">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-chart-line text-primary"></i>
+                                    <span class="font-medium">Analytics</span>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute -bottom-5 -right-5 bg-dark/90 backdrop-blur-sm px-4 py-2 rounded-lg border border-primary/20 shadow-xl animate-float" style="animation-delay: 1.5s;">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-hospital text-primary"></i>
+                                    <span class="font-medium">SNF</span>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute top-1/2 -right-8 bg-dark/90 backdrop-blur-sm px-4 py-2 rounded-lg border border-primary/20 shadow-xl animate-float" style="animation-delay: 2.5s;">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-database text-primary"></i>
+                                    <span class="font-medium">Data</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Logos Section -->
+                <div class="mt-16 md:mt-28 text-center">
+                    <p class="text-sm font-medium uppercase tracking-wider text-gray-400 mb-8">Trusted by leading SNF organizations</p>
+                    <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-40">
+                        <div class="w-24 h-12 flex items-center justify-center">
+                            <span class="font-bold text-lg">MediCare</span>
+                        </div>
+                        <div class="w-24 h-12 flex items-center justify-center">
+                            <span class="font-bold text-lg">HealthREIT</span>
+                        </div>
+                        <div class="w-24 h-12 flex items-center justify-center">
+                            <span class="font-bold text-lg">CareGroup</span>
+                        </div>
+                        <div class="w-24 h-12 flex items-center justify-center">
+                            <span class="font-bold text-lg">MedTrust</span>
+                        </div>
+                        <div class="w-24 h-12 flex items-center justify-center">
+                            <span class="font-bold text-lg">NexusRiverCare</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wave Divider -->
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-16 md:h-24">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C115.7,13.1,231.36,30.28,321.39,56.44Z" class="fill-dark"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-24 bg-dark relative overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 bg-grid opacity-30"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-20">
+                    <div class="inline-block mb-3 bg-primary/10 px-4 py-1.5 rounded-full">
+                        <span class="text-xs font-medium text-primary">Our Benefits</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose <span class="text-primary">Care NaviQ</span></h2>
+                    <p class="text-xl max-w-3xl mx-auto text-gray-300">Our platform delivers real-time insights and tools to transform Skilled Nursing Facility operations</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Feature 1 -->
+                    <div class="flex flex-col items-center text-center group card-hover p-8 rounded-xl bg-white/5 backdrop-blur-sm feature-card">
+                        <div class="feature-icon-bg">
+                            <i class="fas fa-chart-bar text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Interactive Dashboards</h3>
+                        <p class="text-gray-300">Monitor census, staffing, reimbursement, and clinical outcomes with intuitive, real-time dashboards.</p>
+                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="#" class="text-primary hover:underline inline-flex items-center">
+                                <span>Learn more</span>
+                                <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="flex flex-col items-center text-center group card-hover p-8 rounded-xl bg-white/5 backdrop-blur-sm feature-card">
+                        <div class="feature-icon-bg">
+                            <i class="fas fa-shield-alt text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Risk Management</h3>
+                        <p class="text-gray-300">Minimize risks and insurance costs with integrated documentation and live risk tracking.</p>
+                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="#" class="text-primary hover:underline inline-flex items-center">
+                                <span>Learn more</span>
+                                <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="flex flex-col items-center text-center group card-hover p-8 rounded-xl bg-white/5 backdrop-blur-sm feature-card">
+                        <div class="feature-icon-bg">
+                            <i class="fas fa-money-bill-wave text-primary text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Financial Optimization</h3>
+                        <p class="text-gray-300">Streamline accounts receivable and boost profitability with real-time financial insights.</p>
+                        <div class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="#" class="text-primary hover:underline inline-flex items-center">
+                                <span>Learn more</span>
+                                <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20 glass-effect p-10 relative overflow-hidden">
+                    <!-- Background glow elements -->
+                    <div class="absolute -top-20 -left-20 w-64 h-64 bg-primary opacity-10 rounded-full blur-[80px]"></div>
+                    <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-accent opacity-10 rounded-full blur-[80px]"></div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-6 leading-tight">Transform your SNF operations today</h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed">Join hundreds of facilities using <span class="text-primary font-medium">Care NaviQ</span> to enhance care, reduce costs, and improve outcomes.</p>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-check text-primary text-xs"></i>
+                                    </div>
+                                    <p>Reduce insurance premiums by up to $100,000/month</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-check text-primary text-xs"></i>
+                                    </div>
+                                    <p>Shorten revenue cycles by 20%</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-check text-primary text-xs"></i>
+                                    </div>
+                                    <p>Improve care plans with real-time insights</p>
+                                </div>
+                            </div>
+                            <a href="#demo" class="mt-8 inline-block px-6 py-3 bg-primary text-white rounded-full font-medium hover:shadow-lg hover:shadow-primary/20 transition-all">Schedule Your Demo</a>
+                        </div>
+                        <div class="relative">
+                            <!-- SVG Analytics Graphic -->
+                            <div class="w-full rounded-xl shadow-2xl z-10 relative bg-dark/40 p-6 border border-primary/10">
+                                <!-- ROI Calculator Simulation -->
+                                <div class="text-center mb-6">
+                                    <h4 class="text-primary font-bold mb-2">Savings Calculator</h4>
+                                    <p class="text-sm text-gray-300">See how Care NaviQ can impact your facility</p>
+                                </div>
+                                
+                                <div class="space-y-6">
+                                    <div>
+                                        <label class="text-gray-300 text-sm block mb-2">Facility Beds</label>
+                                        <div class="w-full h-4 bg-gray-700 rounded-full overflow-hidden">
+                                            <div class="h-full bg-primary w-3/4 rounded-full relative">
+                                                <div class="absolute -right-2 -top-1.5 w-7 h-7 bg-white rounded-full border-2 border-primary"></div>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                                            <span>50</span>
+                                            <span>150</span>
+                                            <span>250+</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="text-gray-300 text-sm block mb-2">Solution Suite</label>
+                                        <div class="w-full h-4 bg-gray-700 rounded-full overflow-hidden">
+                                            <div class="h-full bg-primary w-1/2 rounded-full relative">
+                                                <div class="absolute -right-2 -top-1.5 w-7 h-7 bg-white rounded-full border-2 border-primary"></div>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                                            <span>Basic</span>
+                                            <span>Pro</span>
+                                            <span>Enterprise</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="p-6 bg-dark/60 rounded-xl">
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <div class="text-gray-400 text-sm">Monthly Savings</div>
+                                                <div class="text-primary text-2xl font-bold">$85,000</div>
+                                            </div>
+                                            <div>
+                                                <div class="text-gray-400 text-sm">Break-Even Point</div>
+                                                <div class="text-primary text-2xl font-bold">3.8 Months</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Decorative elements -->
+                            <div class="absolute -top-4 -right-4 w-32 h-32 border-4 border-primary/20 rounded-xl -z-1"></div>
+                            <div class="absolute -bottom-4 -left-4 w-32 h-32 border-4 border-primary/20 rounded-xl -z-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="solutions" class="py-24 bg-gradient-to-b from-dark to-charcoal relative">
+            <!-- Background Elements -->
+            <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary opacity-5 blur-[150px] rounded-full"></div>
+            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-primary opacity-5 blur-[150px] rounded-full"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-16">
+                    <div class="inline-block mb-3 bg-primary/10 px-4 py-1.5 rounded-full">
+                        <span class="text-xs font-medium text-primary">Tailored Solutions</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Solutions for SNF Success</h2>
+                    <p class="text-xl max-w-3xl mx-auto text-gray-300">Care NaviQ offers specialized tools to streamline every aspect of Skilled Nursing Facility management</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Solution Card 1 -->
+                    <div class="glass-effect card-hover overflow-hidden">
+                        <div class="relative h-48 bg-gradient-to-br from-primary/20 to-dark/80 flex items-center justify-center">
+                            <i class="fas fa-money-check-alt text-primary text-6xl opacity-20"></i>
+                            <div class="absolute top-4 left-0 bg-primary text-white py-1 px-4 rounded-r font-semibold flex items-center space-x-1">
+                                <i class="fas fa-dollar-sign text-xs"></i>
+                                <span>AR Max</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Accounts Receivable</h3>
+                            <p class="text-gray-300 mb-4">Minimize bad debt and streamline collections with real-time financial insights and trends.</p>
+                            <ul class="space-y-2 text-gray-300 mb-6">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Efficient collections</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Reduce bad debt</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Financial stability</li>
+                            </ul>
+                            <a href="#" class="block text-center bg-primary text-white py-2.5 px-4 rounded-lg font-medium hover:bg-opacity-80 transition group">
+                                <span class="group-hover:mr-1 transition-all">Learn More</span>
+                                <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 transition-all"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Solution Card 2 -->
+                    <div class="glass-effect card-hover overflow-hidden">
+                        <div class="relative h-48 bg-gradient-to-br from-primary/20 to-dark/80 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-primary text-6xl opacity-20"></i>
+                            <div class="absolute top-4 left-0 bg-accent text-white py-1 px-4 rounded-r font-semibold flex items-center space-x-1">
+                                <i class="fas fa-exclamation-triangle text-xs"></i>
+                                <span>Risk Suite</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Risk Management</h3>
+                            <p class="text-gray-300 mb-4">Lower insurance premiums with integrated risk documentation and live dashboards.</p>
+                            <ul class="space-y-2 text-gray-300 mb-6">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Reduce premiums</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Document risks</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Update care plans</li>
+                            </ul>
+                            <a href="#" class="block text-center bg-primary text-white py-2.5 px-4 rounded-lg font-medium hover:bg-opacity-80 transition group">
+                                <span class="group-hover:mr-1 transition-all">Learn More</span>
+                                <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 transition-all"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Solution Card 3 -->
+                    <div class="glass-effect card-hover overflow-hidden">
+                        <div class="relative h-48 bg-gradient-to-br from-primary/20 to-dark/80 flex items-center justify-center">
+                            <i class="fas fa-compass text-primary text-6xl opacity-20"></i>
+                            <div class="absolute top-4 left-0 bg-secondary text-white py-1 px-4 rounded-r font-semibold flex items-center space-x-1">
+                                <i class="fas fa-map-signs text-xs"></i>
+                                <span>NaviQ Compass</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Decision-Making</h3>
+                            <p class="text-gray-300 mb-4">Navigate operations with clear dashboards for census, staffing, and clinical outcomes.</p>
+                            <ul class="space-y-2 text-gray-300 mb-6">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Optimize staffing</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Improve reimbursement</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i> Enhance outcomes</li>
+                            </ul>
+                            <a href="#" class="block text-center bg-primary text-white py-2.5 px-4 rounded-lg font-medium hover:bg-opacity-80 transition group">
+                                <span class="group-hover:mr-1 transition-all">Learn More</span>
+                                <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 transition-all"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Solution Call-to-action -->
+                <div class="mt-16 text-center">
+                    <a href="#demo" class="inline-flex items-center px-6 py-3 bg-white/5 backdrop-blur-sm rounded-full hover:bg-primary/20 transition-all duration-300 text-primary font-medium">
+                        <span>Discover our full suite of apps</span> 
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-16 fade-in">
+                    <div class="inline-block mb-3 bg-primary/10 px-4 py-1.5 rounded-full">
+                        <span class="text-xs font-medium text-primary">Success Stories</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">What Our Clients Say</h2>
+                    <p class="text-xl max-w-3xl mx-auto text-gray-300">Hear from SNF leaders who have transformed their operations with Care NaviQ</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="bg-white/5 p-8 rounded-lg shadow-lg testimonial-card backdrop-blur-sm">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mr-4 text-primary text-xl font-bold">
+                                LK
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Lisa Kim</h4>
+                                <p class="text-gray-400">Administrator, Harmony Care SNF</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4 italic">"Care NaviQ cut our revenue cycle time by 25% and provided actionable insights to elevate patient care."</p>
+                        <div class="flex text-accent">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/5 p-8 rounded-lg shadow-lg testimonial-card backdrop-blur-sm">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mr-4 text-primary text-xl font-bold">
+                                JD
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">James Davis</h4>
+                                <p class="text-gray-400">CFO, Vitality Senior Living</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 mb-4 italic">"The Risk Suite saved us $90,000 monthly in insurance costs while ensuring compliance."</p>
+                        <div class="flex text-accent">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Counter Section -->
+                <div class="mt-20 py-16 bg-dark rounded-xl glass-effect">
+                    <div class="container mx-auto px-6">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                            <div class="fade-in">
+                                <div class="text-4xl font-bold mb-2 counter gradient-text" data-target="200">0</div>
+                                <p class="text-accent">Facilities Served</p>
+                            </div>
+                            <div class="fade-in">
+                                <div class="text-4xl font-bold mb-2 counter gradient-text" data-target="20">0</div>
+                                <p class="text-accent">Software Integrations</p>
+                            </div>
+                            <div class="fade-in">
+                                <div class="text-4xl font-bold mb-2 counter gradient-text" data-target="30">0</div>
+                                <p class="text-accent">Average Cost Reduction</p>
+                            </div>
+                            <div class="fade-in">
+                                <div class="text-4xl font-bold mb-2 counter gradient-text" data-target="95">0</div>
+                                <p class="text-accent">Client Satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Request Section -->
+        <section id="demo" class="py-20 gradient-bg text-light">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center fade-in">
+                    <h2 class="text-3xl font-bold mb-8">Ready to Optimize Your SNF?</h2>
+                    <p class="text-xl mb-10">Schedule a demo to see how Care NaviQ can streamline your operations and enhance patient care.</p>
+                    
+                    <form class="bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-2xl text-left">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-light mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-white">
+                            </div>
+                            <div>
+                                <label class="block text-light mb-2" for="email">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-white">
+                            </div>
+                            <div>
+                                <label class="block text-light mb-2" for="company">Facility Name</label>
+                                <input type="text" id="company" class="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-white">
+                            </div>
+                            <div>
+                                <label class="block text-light mb-2" for="role">Role</label>
+                                <select id="role" class="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-white">
+                                    <option value="" class="bg-dark">Select your role</option>
+                                    <option value="admin" class="bg-dark">Administrator</option>
+                                    <option value="cfo" class="bg-dark">CFO</option>
+                                    <option value="clinical" class="bg-dark">Clinical Staff</option>
+                                    <option value="other" class="bg-dark">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-light mb-2" for="message">What challenges are you facing?</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white py-3 px-6 rounded-md font-semibold hover:bg-secondary transition duration-300">Request Demo</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="bg-primary/30 rounded-lg p-10 flex flex-col md:flex-row items-center justify-between backdrop-blur-sm border border-primary/20">
+                    <div class="mb-8 md:mb-0 md:w-2/3">
+                        <h2 class="text-2xl font-bold text-light mb-4">Stay Ahead in SNF Management</h2>
+                        <p class="text-light opacity-90">Join our newsletter for the latest insights, case studies, and industry trends.</p>
+                    </div>
+                    <div class="w-full md:w-1/3">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="px-4 py-3 rounded-l-md w-full focus:outline-none bg-white/10 border border-white/20 text-white">
+                            <button class="bg-dark text-light px-6 py-3 rounded-r-md hover:bg-opacity-80 transition duration-300">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-light py-12">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                    <div>
+                        <div class="flex items-center mb-6">
+                            <h3 class="text-xl font-bold">Care<span class="text-accent">NaviQ</span></h3>
+                        </div>
+                        <p class="text-gray-400">Transforming Skilled Nursing Facilities with innovative analytics and management tools.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-light">Solutions</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-accent transition duration-300">AR Max</a></li>
+                            <li><a href="#" class="hover:text-accent transition duration-300">Risk Suite</a></li>
+                            <li><a href="#" class="hover:text-accent transition duration-300">NaviQ Compass</a></li>
+                            <li><a href="#" class="hover:text-accent transition duration-300">Case Studies</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-light">Company</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-accent transition duration-300">About Us</a></li>
+                            <li><a href="#" class="hover:text-accent transition duration-300">Careers</a></li>
+                            <li><a href="#" class="hover:text-accent transition duration-300">News</a></li>
+                            <li><a href="#" class="hover:text-accent transition duration-300">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 text-light">Connect</h4>
+                        <div class="flex space-x-4 mb-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-accent hover:bg-primary/40 transition duration-300">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-accent hover:bg-primary/40 transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-accent hover:bg-primary/40 transition duration-300">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">© 2025 Care NaviQ. All rights reserved.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-accent transition duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-accent transition duration-300">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('fade-in')) {
+                            entry.target.classList.add('active');
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Counter animation
+            const counters = document.querySelectorAll('.counter');
+            if (counters.length > 0) {
+                counters.forEach(counter => {
+                    const counterObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const target = parseInt(counter.getAttribute('data-target'));
+                                let count = 0;
+                                const updateCount = () => {
+                                    const increment = target / 100;
+                                    if (count < target) {
+                                        count += increment;
+                                        counter.innerText = Math.ceil(count);
+                                        setTimeout(updateCount, 20);
+                                    } else {
+                                        counter.innerText = target;
+                                    }
+                                };
+                                updateCount();
+                                counterObserver.unobserve(counter);
+                            }
+                        });
+                    }, { threshold: 0.5 });
+                    counterObserver.observe(counter);
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            // Data visualization animations
+            const animateDataViz = () => {
+                document.querySelectorAll('.data-bar').forEach(bar => {
+                    const width = bar.getAttribute('class').split('w-[')[1].split('%]')[0] + '%';
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 500);
+                });
+                
+                const dataLine = document.querySelector('.data-line');
+                if (dataLine) {
+                    dataLine.style.width = '0';
+                    setTimeout(() => {
+                        dataLine.style.width = '100%';
+                    }, 1000);
+                }
+                
+                const dataCells = document.querySelectorAll('.data-cell');
+                if (dataCells.length > 0) {
+                    dataCells.forEach((cell, index) => {
+                        cell.style.opacity = 0;
+                        setTimeout(() => {
+                            cell.style.opacity = 1;
+                            cell.style.transition = 'opacity 0.3s ease';
+                        }, 50 * index);
+                    });
+                }
+            };
+            
+            setTimeout(animateDataViz, 1000);
+            
+            // Form validation
+            const demoForm = document.querySelector('#demo form');
+            if (demoForm) {
+                demoForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const company = document.getElementById('company').value;
+                    
+                    if (!name || !email || !company) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address.');
+                        return;
+                    }
+                    
+                    alert('Thank you! We’ll contact you soon to schedule your demo.');
+                    demoForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

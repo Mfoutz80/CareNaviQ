@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1SPXCJWH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N1SPXCJWH0');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CARE NAVIQ - Facility Dashboard</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- CareNaviQ Style Sheet-->
+  <link rel="stylesheet" href="carenaviq_styles.css" />
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- html2pdf -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="bg-gray-50">
+  <!-- NAVBAR -->
+  <div class="sticky top-0 z-50">
+    <header style="background-color: #ffffff" class="shadow-md">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <img src="logo.svg" alt="Care Naviq Logo" class="h-10 w-10 mr-2">
+            <div>
+              <h1 class="text-2xl font-bold">
+                <span style="color: #000000;">Care</span>
+                <span style="color: #769656;">NaviQ</span>
+              </h1>
+            </div>
+          </div>
+          <nav class="flex items-center space-x-6">
+            <a href="#" class="hover:text-primary transition flex items-center" style="color: #666633;">
+              <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+            </a>
+            <a href="#" class="hover:text-primary transition flex items-center" style="color: #666633;">
+              <i class="fas fa-chart-bar mr-2"></i> Reports
+            </a>
+            <div class="relative">
+              <button class="flex items-center hover:text-primary transition" style="color: #666633;">
+                <i class="fas fa-user-circle mr-2"></i> Profile
+                <i class="fas fa-chevron-down ml-2 text-xs"></i>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+  </div>
+  <!-- END NAVBAR -->
+
+  <div class="container mx-auto px-4 py-8" id="main-content">
+    <!-- Dynamic content will be injected here -->
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-white rounded-lg shadow-sm mt-10" style="border-top-color: #e6e6e6;">
+    <div class="p-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h3 class="text-lg font-semibold mb-3" style="color: #769656;">CARE NAVIQ</h3>
+          <p class="text-sm" style="color: #666633;">
+            Providing comprehensive insights for skilled nursing facilities.
+          </p>
+          <p class="text-sm mt-2" style="color: #666633;" id="footer-last-updated"></p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-3" style="color: #769656;">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-green-600 transition text-sm flex items-center" style="color: #666633;"><i class="fas fa-home mr-2"></i> Home</a></li>
+            <li><a href="#" class="hover:text-green-600 transition text-sm flex items-center" style="color: #666633;"><i class="fas fa-file-alt mr-2"></i> Documentation</a></li>
+            <li><a href="#" class="hover:text-green-600 transition text-sm flex items-center" style="color: #666633;"><i class="fas fa-question-circle mr-2"></i> Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-3" style="color: #769656;">Contact</h3>
+          <p class="text-sm flex items-center" style="color: #666633;"><i class="fas fa-envelope mr-2"></i> support@carenaviq.com</p>
+          <p class="text-sm mt-2 flex items-center" style="color: #666633;"><i class="fas fa-phone mr-2"></i> (555) 123-4567</p>
+          <div class="mt-4 flex space-x-3">
+            <a href="#" class="hover:text-green-600 transition" style="color: #666633;"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-green-600 transition" style="color: #666633;"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="hover:text-green-600 transition" style="color: #666633;"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 pt-6 border-t text-center" style="border-color: #e6e6e6;">
+        <p class="text-sm" style="color: #666633;" id="copyright"></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="carenaviq_js.js"></script>
+  <script>
+    // Fetch and insert content from data.html
+    fetch('data.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('main-content').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading data.html:', error));
+
+    const facilityData = {
+  "facility_details": {
+    "name": "REDLANDS HEALTHCARE CENTER",
+    "ccn": "055001",
+    "address": "1620 WEST FERN AVENUE",
+    "city": "REDLANDS",
+    "state": "CA",
+    "zip": "92373",
+    "county": "SAN BERNARDINO",
+    "phone": "9097932609",
+    "ownership_type": "For profit - Limited Liability company",
+    "certified_beds": 78,
+    "average_daily_census": 75.1,
+    "occupancy_rate": 96.28,
+    "provider_type": "Medicare and Medicaid",
+    "medicare_medicaid_date": "1978-08-01",
+    "in_hospital": "N",
+    "ccrc": "N",
+    "cbsa_code": "",
+    "cbsa_name": "",
+    "is_rural": false,
+    "county_population": 0,
+    "county_elder_population": 0,
+    "county_median_income": 0,
+    "location": {
+      "latitude": 34.0373,
+      "longitude": -117.2
+    },
+    "special_focus": "",
+    "sprinkler_system": "Yes",
+    "changed_ownership_last_12mo": "N",
+    "affiliated_entity_id": "690.0",
+    "affiliated_entity_name": "PACS GROUP"
+  },
+  "financial_strength": {
+    "occupancy_rate": 96.28,
+    "revenue_per_patient_day": 513.77,
+    "operating_margin": 100.13,
+    "cash_position": 0,
+    "current_ratio": 3.39
+  },
+  "clinical_strength": {
+    "staffing_hours_per_resident": 4.15,
+    "rn_staffing_hours": 0.39,
+    "total_deficiencies": 6,
+    "infection_control_deficiencies": 0,
+    "rn_turnover_rate": 0.0,
+    "total_staff_turnover": 52.3
+  },
+  "network_strength": {
+    "admissions_volume": 475,
+    "discharges_volume": 470,
+    "payer_mix": {
+      "medicare_percent": 37.8,
+      "medicaid_percent": 3.27,
+      "other_percent": 58.93
+    }
+  },
+  "year_over_year_changes": {
+    "staffing_change": 4.37,
+    "deficiencies_change": -3
+  }
+};
+  </script>
+</body>
+</html>
