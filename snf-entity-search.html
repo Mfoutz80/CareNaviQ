@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1SPXCJWH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N1SPXCJWH0');
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CARE NAVIQ - Entity Search</title>
@@ -18,16 +27,16 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
     :root {
-      --primary: #769656;
+      --primary: #059669;
       --primary-light: #d9e6b8;
-      --secondary: #5a8b3f;
+      --secondary: #059669;
       --secondary-light: #c7e0b8;
       --tertiary: #414141;
       --tertiary-light: #ffffff;
       --danger: #b33430;
       --danger-light: #f4d8d7;
       --dark: #2b2b2b;
-      --gray: #666633;
+      --gray: #059669;
       --light-gray: #f0f0f0;
       --white: #ffffff;
     }
@@ -143,7 +152,7 @@
       border-top-color: var(--tertiary);
     }
     .metric-purple {
-      border-top-color: #666633;
+      border-top-color: #059669;
     }
     .progress-bar {
       height: 8px;
@@ -158,7 +167,7 @@
       transition: width 1s ease-in-out;
     }
     .progress-primary {
-      background: linear-gradient(to right, #666633, var(--primary));
+      background: linear-gradient(to right, #059669 var(--primary));
     }
     .empty-state {
       text-align: center;
@@ -232,19 +241,19 @@
             <div>
               <h1 class="text-2xl font-bold">
                 <span style="color: #000000;">Care</span>
-                <span style="color: #769656;">NaviQ</span>
+                <span style="color: #059669;">NaviQ</span>
               </h1>
             </div>
           </div>
           <nav class="flex items-center space-x-6">
-            <a href="#" class="hover:text-primary transition flex items-center" style="color: #666633;">
+            <a href="#" class="hover:text-primary transition flex items-center" style="color: #022119;">
               <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
             </a>
-            <a href="#" class="hover:text-primary transition flex items-center" style="color: #666633;">
+            <a href="#" class="hover:text-primary transition flex items-center" style="color: #022119;">
               <i class="fas fa-chart-bar mr-2"></i> Reports
             </a>
             <div class="relative">
-              <button class="flex items-center hover:text-primary transition" style="color: #666633;">
+              <button class="flex items-center hover:text-primary transition" style="color: #022119;">
                 <i class="fas fa-user-circle mr-2"></i> Profile
                 <i class="fas fa-chevron-down ml-2 text-xs"></i>
               </button>
@@ -288,12 +297,12 @@
           <div class="flex items-center">
             <img src="logo.svg" alt="Care Naviq Logo" class="h-8 w-8 mr-2" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9IiM3Njk2NTYiIHJ4PSI4Ii8+PHBhdGggZD0iTTEwIDEwSDMwVjMwSDEwVjEwWiIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNMTUgMjBIMjVNMTUgMTVIMjVNMTUgMjVIMjUiIHN0cm9rZT0iIzc2OTY1NiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4='">
             <h1 class="text-xl font-bold">
-              <span style="color: #000000;">CARE</span>
-              <span style="color: #769656;">NAVIQ</span>
+              <span style="color: #000000;">Care</span>
+              <span style="color: #059669;">NaviQ</span>
             </h1>
           </div>
         </div>
-        <div class="text-sm text-center md:text-right" style="color: #666633;">
+        <div class="text-sm text-center md:text-right" style="color: #020f0b;">
           © <span id="current-year"></span> CARE NAVIQ. All rights reserved.
         </div>
       </div>
@@ -444,7 +453,7 @@ function checkURLParameters() {
           labels: ['Medicare', 'Medicaid', 'Other'],
           datasets: [{
             data: [payerMix.medicare || 0, payerMix.medicaid || 0, payerMix.other || 0],
-            backgroundColor: ['#aaf065', '#5a8b3f', '#eeeed2'],
+            backgroundColor: ['#e5ebdf', '#5a8b3f', '#babaad'],
             borderWidth: 0,
             borderRadius: 4
           }]
@@ -470,7 +479,7 @@ function checkURLParameters() {
 
     function createFacilitiesCards(facilities) {
     if (!facilities || facilities.length === 0) {
-        return '<p class="text-sm text-center" style="color: #666633;">No facility data available</p>';
+        return '<p class="text-sm text-center" style="color: #059669;">No facility data available</p>';
     }
     
     let html = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">';
@@ -497,7 +506,7 @@ function checkURLParameters() {
         html += `
             <div class="facility-card card p-4 flex">
                 <div class="w-10 flex-shrink-0 mr-4">
-                    <i class="fas fa-building                     text-2xl" style="color: #769656;"></i>
+                    <i class="fas fa-building                     text-2xl" style="color: #059669;"></i>
                 </div>
                 <div class="flex-1">
                     <h4 class="text-lg font-semibold mb-2" style="color: #2b2b2b;">
@@ -507,21 +516,21 @@ function checkURLParameters() {
                     </h4>
                     <div class="space-y-2 text-sm">
                         <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt mr-2 mt-1" style="color: #769656;"></i>
+                            <i class="fas fa-map-marker-alt mr-2 mt-1" style="color: #059669;"></i>
                             <div>
-                                <div style="color: #666633;">
-                                    <a href="${mapsUrl}" target="_blank" class="hover:text-primary transition" style="color: #666633;">
+                                <div style="color: #022118;">
+                                    <a href="${mapsUrl}" target="_blank" class="hover:text-primary transition" style="color: #022118;">
                                         ${facility.address}
                                     </a>
                                 </div>
-                                <div style="color: #666633;">${facility.city}, ${facility.state} ${facility.zip_code}</div>
+                                <div style="color: #022118;">${facility.city}, ${facility.state} ${facility.zip_code}</div>
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <i class="fas fa-phone mr-2" style="color: #769656;"></i>
-                            <span style="color: #666633;">
+                            <i class="fas fa-phone mr-2" style="color: #059669;"></i>
+                            <span style="color: #059669;">
                                 ${facility.phone ? 
-                                    `<a href="${phoneUrl}" class="hover:text-primary transition" style="color: #666633;">${phoneFormatted}</a>` : 
+                                    `<a href="${phoneUrl}" class="hover:text-primary transition" style="color: #022118;">${phoneFormatted}</a>` : 
                                     phoneFormatted}
                             </span>
                         </div>
@@ -626,32 +635,32 @@ function displayEntityDetails(entity) {
                 
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
                     <div class="metric-card metric-primary">
-                        <h3 class="text-sm uppercase font-semibold mb-2" style="color: #666633;">
-                            <i class="fas fa-building mr-2" style="color: #769656;"></i>Facilities
+                        <h3 class="text-sm uppercase font-semibold mb-2" style="color: #059669;">
+                            <i class="fas fa-building mr-2" style="color: #022118;"></i>Facilities
                         </h3>
                         <p class="text-2xl font-bold" style="color: #2b2b2b;">${overview.total_facility_count || 0}</p>
-                        <p class="text-xs mt-1" style="color: #666633;">
-                            YoY Change: <span style="color: ${changes.facility_count_change > 0 ? '#5a8b3f' : changes.facility_count_change < 0 ? '#b33430' : '#666633'};">
+                        <p class="text-xs mt-1" style="color: #059669;">
+                            YoY Change: <span style="color: ${changes.facility_count_change > 0 ? '#5a8b3f' : changes.facility_count_change < 0 ? '#b33430' : '#059669'};">
                                 ${changes.facility_count_change > 0 ? '+' : ''}${changes.facility_count_change || 0}
                             </span>
                         </p>
                     </div>
                     
                     <div class="metric-card metric-secondary">
-                        <h3 class="text-sm uppercase font-semibold mb-2" style="color: #666633;">
-                            <i class="fas fa-bed mr-2" style="color: #769656;"></i>Total Beds
+                        <h3 class="text-sm uppercase font-semibold mb-2" style="color: #059669;">
+                            <i class="fas fa-bed mr-2" style="color: #022118;"></i>Total Beds
                         </h3>
                         <p class="text-2xl font-bold" style="color: #2b2b2b;">${(overview.total_beds || 0).toLocaleString()}</p>
-                        <p class="text-xs mt-1" style="color: #666633;">
-                            YoY Change: <span style="color: ${changes.beds_change > 0 ? '#5a8b3f' : changes.beds_change < 0 ? '#b33430' : '#666633'};">
+                        <p class="text-xs mt-1" style="color: #059669;">
+                            YoY Change: <span style="color: ${changes.beds_change > 0 ? '#5a8b3f' : changes.beds_change < 0 ? '#b33430' : '#059669'};">
                                 ${changes.beds_change > 0 ? '+' : ''}${changes.beds_change || 0}
                             </span>
                         </p>
                     </div>
                     
                     <div class="metric-card metric-tertiary">
-                        <h3 class="text-sm uppercase font-semibold mb-2" style="color: #666633;">
-                            <i class="fas fa-percentage mr-2" style="color: #769656;"></i>Occupancy
+                        <h3 class="text-sm uppercase font-semibold mb-2" style="color: #059669;">
+                            <i class="fas fa-percentage mr-2" style="color: #022118;"></i>Occupancy
                         </h3>
                         <p class="text-2xl font-bold" style="color: #2b2b2b;">${occupancyRate.toFixed(1)}%</p>
                         <div class="progress-bar mt-2">
@@ -660,11 +669,11 @@ function displayEntityDetails(entity) {
                     </div>
                     
                     <div class="metric-card metric-purple">
-                        <h3 class="text-sm uppercase font-semibold mb-2" style="color: #666633;">
-                            <i class="fas fa-calculator mr-2" style="color: #769656;"></i>Annual Rebate
+                        <h3 class="text-sm uppercase font-semibold mb-2" style="color: #059669;">
+                            <i class="fas fa-calculator mr-2" style="color: #022118;"></i>Annual Rebate
                         </h3>
                         <p class="text-2xl font-bold" style="color: #2b2b2b;">$${formattedRebate}</p>
-                        <p class="text-xs mt-1" style="color: #666633;">
+                        <p class="text-xs mt-1" style="color: #059669;">
                             Based on Medicare: ${payerMix.medicare?.toFixed(1) || 0}%
                         </p>
                     </div>
@@ -672,17 +681,17 @@ function displayEntityDetails(entity) {
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <div class="bg-white rounded-lg shadow-sm p-4">
-                        <h medulla3 class="text-sm font-semibold mb-3" style="color: #769656;">
+                        <h medulla3 class="text-sm font-semibold mb-3" style="color: #022118;">
                             <i class="fas fa-map-marked-alt mr-2"></i>Geographic Presence
                         </h3>
                         <div class="us-map" id="state-map"></div>
-                        <div class="text-sm mt-2 text-center" style="color: #666633;">
+                        <div class="text-sm mt-2 text-center" style="color: #059669;">
                             ${overview.unique_states?.length || 0} states with ${overview.total_facility_count || 0} facilities
                         </div>
                     </div>
                     
                     <div class="bg-white rounded-lg shadow-sm p-4">
-                        <h3 class="text-sm font-semibold mb-3" style="color: #769656;">
+                        <h3 class="text-sm font-semibold mb-3" style="color: #022118;">
                             <i class="fas fa-hand-holding-usd mr-2"></i>Payer Mix
                         </h3>
                         <div class="chart-container">
@@ -693,13 +702,13 @@ function displayEntityDetails(entity) {
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <div class="bg-white rounded-lg shadow-sm p-4">
-                        <h3 class="text-sm font-semibold mb-3" style="color: #769656;">
+                        <h3 class="text-sm font-semibold mb-3" style="color: #022118;">
                             <i class="fas fa-chart-line mr-2"></i>Quality Metrics
                         </h3>
                         <div class="space-y-4">
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-sm" style="color: #666633;">Overall Rating</span>
+                                    <span class="text-sm" style="color: #059669;">Overall Rating</span>
                                     <span class="text-sm font-medium" style="color: #2b2b2b;">${qualityMetrics.overall_rating?.toFixed(1) || 'N/A'}</span>
                                 </div>
                                 <div class="progress-bar">
@@ -708,19 +717,19 @@ function displayEntityDetails(entity) {
                             </div>
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-sm" style="color: #666633;">Health Inspection</span>
+                                    <span class="text-sm" style="color: #059669;">Health Inspection</span>
                                     <span class="text-sm font-medium" style="color: #2b2b2b;">${qualityMetrics.health_inspection_rating?.toFixed(1) || 'N/A'}</span>
                                 </div>
                             </div>
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-sm" style="color: #666633;">Staffing</span>
+                                    <span class="text-sm" style="color: #059669;">Staffing</span>
                                     <span class="text-sm font-medium" style="color: #2b2b2b;">${qualityMetrics.staffing_rating?.toFixed(1) || 'N/A'}</span>
                                 </div>
                             </div>
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-sm" style="color: #666633;">QM Rating</span>
+                                    <span class="text-sm" style="color: #059669;">QM Rating</span>
                                     <span class="text-sm font-medium" style="color: #2b2b2b;">${qualityMetrics.qm_rating?.toFixed(1) || 'N/A'}</span>
                                 </div>
                             </div>
@@ -728,55 +737,55 @@ function displayEntityDetails(entity) {
                     </div>
                     
                     <div class="bg-white rounded-lg shadow-sm p-4">
-                        <h3 class="text-sm font-semibold mb-3" style="color: #769656;">
+                        <h3 class="text-sm font-semibold mb-3" style="color: #022118;">
                             <i class="fas fa-dollar-sign mr-2"></i>Financial Metrics
                         </h3>
                         <div class="space-y-4">
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" style="color: #666633;">Avg Cost/Day</span>
+                                <span class="text-sm" style="color: #059669;">Avg Cost/Day</span>
                                 <span class="text-sm font-medium" style="color: #2b2b2b;">$${financialMetrics.avg_cost_per_day?.toFixed(2) || 'N/A'}</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" style="color: #666633;">Avg Cost/Bed</span>
+                                <span class="text-sm" style="color: #059669;">Avg Cost/Bed</span>
                                 <span class="text-sm font-medium" style="color: #2b2b2b;">$${financialMetrics.avg_cost_per_bed?.toFixed(2) || 'N/A'}</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" style="color: #666633;">Labor Cost %</span>
+                                <span class="text-sm" style="color: #059669;">Labor Cost %</span>
                                 <span class="text-sm font-medium" style="color: #2b2b2b;">${financialMetrics.labor_cost_percentage?.toFixed(1) || 'N/A'}%</span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" style="color: #666633;">Profit Margin</span>
+                                <span class="text-sm" style="color: #059669;">Profit Margin</span>
                                 <span class="text-sm font-medium" style="color: #2b2b2b;">${financialMetrics.profit_margin?.toFixed(1) || 'N/A'}%</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="bg-white rounded-lg shadow-sm p-4">
-                        <h3 class="text-sm font-semibold mb-3" style="color: #769656;">
+                        <h3 class="text-sm font-semibold mb-3" style="color: #022118;">
                             <i class="fas fa-chart-line mr-2"></i>Year-over-Year Changes
                         </h3>
                         <div class="space-y-4">
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" style="color: #666633;">Facilities</span>
-                                <span class="text-sm font-medium" style="color: ${changes.facility_count_change > 0 ? '#5a8b3f' : changes.facility_count_change < 0 ? '#b33430' : '#666633'};">
+                                <span class="text-sm" style="color: #059669;">Facilities</span>
+                                <span class="text-sm font-medium" style="color: ${changes.facility_count_change > 0 ? '#5a8b3f' : changes.facility_count_change < 0 ? '#b33430' : '#059669'};">
                                     ${changes.facility_count_change > 0 ? '+' : ''}${changes.facility_count_change || 0}
                                 </span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" style="color: #666633;">Beds</span>
-                                <span class="text-sm font-medium" style="color: ${changes.beds_change > 0 ? '#5a8b3f' : changes.beds_change < 0 ? '#b33430' : '#666633'};">
+                                <span class="text-sm" style="color: #059669;">Beds</span>
+                                <span class="text-sm font-medium" style="color: ${changes.beds_change > 0 ? '#5a8b3f' : changes.beds_change < 0 ? '#b33430' : '#059669'};">
                                     ${changes.beds_change > 0 ? '+' : ''}${changes.beds_change || 0}
                                 </span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" style="color: #666633;">Occupancy</span>
-                                <span class="text-sm font-medium" style="color: ${changes.occupancy_rate_change > 0 ? '#5a8b3f' : changes.occupancy_rate_change < 0 ? '#b33430' : '#666633'};">
+                                <span class="text-sm" style="color: #059669;">Occupancy</span>
+                                <span class="text-sm font-medium" style="color: ${changes.occupancy_rate_change > 0 ? '#5a8b3f' : changes.occupancy_rate_change < 0 ? '#b33430' : '#059669'};">
                                     ${changes.occupancy_rate_change > 0 ? '+' : ''}${changes.occupancy_rate_change?.toFixed(1) || 0}%
                                 </span>
                             </div>
                             <div class="flex justify-between items-center">
-                                <span class="text-sm" style="color: #666633;">Rating</span>
-                                <span class="text-sm font-medium" style="color: ${changes.overall_rating_change > 0 ? '#5a8b3f' : changes.overall_rating_change < 0 ? '#b33430' : '#666633'};">
+                                <span class="text-sm" style="color: #059669;">Rating</span>
+                                <span class="text-sm font-medium" style="color: ${changes.overall_rating_change > 0 ? '#5a8b3f' : changes.overall_rating_change < 0 ? '#b33430' : '#059669'};">
                                     ${changes.overall_rating_change > 0 ? '+' : ''}${changes.overall_rating_change?.toFixed(1) || 0}
                                 </span>
                             </div>
@@ -786,7 +795,7 @@ function displayEntityDetails(entity) {
 
                 <div class="mt-8">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-lg font-semibold" style="color: #769656;">
+                        <h3 class="text-lg font-semibold" style="color: #022118;">
                             <i class="fas fa-building mr-2"></i>All Facilities (${facilities.length})
                         </h3>
                     </div>
@@ -868,7 +877,7 @@ function performSearch(query) {
                     <div class="flex justify-between items-center">
                         <div>
                             <div class="font-medium text-lg" style="color: #2b2b2b;">${highlightedName}</div>
-                            <div class="text-sm" style="color: #666633;">
+                            <div class="text-sm" style="color: #059669;">
                                 <span class="mr-4">${entity.overview?.total_facility_count || 0} Facilities</span>
                                 <span class="mr-4">${(entity.overview?.total_beds || 0).toLocaleString()} Beds</span>
                                 <span>${entity.overview?.unique_states?.length || 0} States</span>
@@ -893,14 +902,14 @@ function performSearch(query) {
             emptyState.classList.add('hidden');
         } else {
             console.log('No matches found for query:', query);
-            searchResults.innerHTML = `<div class="p-4 text-center" style="color: #666633;">No entities found matching "${query}"</div>`;
+            searchResults.innerHTML = `<div class="p-4 text-center" style="color: #059669;">No entities found matching "${query}"</div>`;
             searchResults.classList.remove('hidden');
             emptyState.classList.add('hidden');
         }
     } catch (error) {
         console.error('Error in performSearch:', error);
         hideLoading();
-        searchResults.innerHTML = `<div class="p-4 text-center" style="color: #666633;">An error occurred while searching: ${error.message}</div>`;
+        searchResults.innerHTML = `<div class="p-4 text-center" style="color: #059669;">An error occurred while searching: ${error.message}</div>`;
         searchResults.classList.remove('hidden');
         emptyState.classList.add('hidden');
     }
