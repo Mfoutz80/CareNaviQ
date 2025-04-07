@@ -380,15 +380,18 @@ function checkURLParameters() {
     }
 }
 
-    function calculateRebate(entity) {
-      const P1 = 0.65, P2 = 0.7, P3 = 0.75, P4 = 0.8, P5 = 0.85;
-      const F = entity.overview?.total_facility_count || 0;
-      const B = F > 0 ? (entity.overview?.total_beds || 0) / F : 0;
-      const A = entity.payer_mix?.medicare || 0;
-      
-      let P = F <= 29 ? P1 : F <= 59 ? P2 : F <= 89 ? P3 : F <= 119 ? P4 : P5;
-      return (F * B * A / 100) * 1668.24 * P;
-    }
+function calculateRebate(entity) {
+  /*
+    const P1 = 0.65, P2 = 0.7, P3 = 0.75, P4 = 0.8, P5 = 0.85;
+    const F = entity.overview?.total_facility_count || 0;
+    const B = F > 0 ? (entity.overview?.total_beds || 0) / F : 0;
+    const A = entity.payer_mix?.medicare || 0;
+    
+    let P = F <= 29 ? P1 : F <= 59 ? P2 : F <= 89 ? P3 : F <= 119 ? P4 : P5;
+    return (F * B * A / 100) * 1668.24 * P;
+  */
+  return "N/A";
+}
 
     function createStateMap(states) {
       d3.select('#state-map').html('');
